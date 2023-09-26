@@ -11,6 +11,8 @@ max_tries = 60 * 5  # 5 minutes
 wait_seconds = 10
 
 client = AsyncIOMotorClient(settings.MONGODB_URL)
+
+
 @retry(
     stop=stop_after_attempt(max_tries),
     wait=wait_fixed(wait_seconds),
@@ -25,11 +27,13 @@ def wait_for_database() -> None:
         logger.error(e)
         raise e
 
+
 def main() -> None:
     logger.info("Initializing service")
     wait_for_database()
     logger.info("Services finished initializing")
     client.close()
+
 
 if __name__ == "__main__":
     main()

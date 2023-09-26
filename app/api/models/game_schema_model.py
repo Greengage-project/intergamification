@@ -2,7 +2,7 @@ from typing import List, Optional
 from datetime import date
 from pydantic import BaseModel, Field
 # default_game_schema
-from app.api.models.game_schema_default import default_game_schema
+from app.api.models.default_data_model import default_game_schema
 class ActionReward(BaseModel):
     action_reward_name: str
     action_reward_description: str

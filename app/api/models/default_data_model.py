@@ -1,5 +1,5 @@
 default_game_schema = {
-    "actions_values":[
+    "actions_values": [
         "contribution",
         "moderator_evaluation",
         "complete_task",
@@ -36,4 +36,37 @@ default_game_schema = {
         }
     ],
     "reward_formula": "[contribution_actions] + [evaluation_by_moderator] + [tasks_completed] + [login_times]"
+}
+
+default_game_instance = {
+    "game_id": "1",
+    "schema": {},
+    "status": "active",
+    "data_game": [
+        {
+            "user_id": "xxxxxxxxxx",
+            "actions": [
+              {
+                  "action_name": "contribution",
+                  "action_value": "1",
+                  "action_date": "2023-01-01"
+              },
+                {
+                  "action_name": "moderator_evaluation",
+                  "action_value": "1",
+                  "action_date": "2023-01-01"
+              },
+                {
+                  "action_name": "complete_task",
+                  "action_value": "1",
+                  "action_date": "2023-01-01"
+              },
+                {
+                  "action_name": "login",
+                  "action_value": "1",
+                  "action_date": "2023-01-01"
+              }
+            ]
+        }
+    ]
 }

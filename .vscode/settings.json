@@ -1,5 +1,6 @@
 {
   "python.poetryPath": "poetry",
   "python.linting.pep8Enabled": true,
-  "python.autoComplete.extraPaths": []
+  "python.autoComplete.extraPaths": [],
+  "editor.formatOnSave": true
 }

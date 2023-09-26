@@ -4,8 +4,6 @@ import requests
 from fastapi.encoders import jsonable_encoder
 
 from app.api.db.mongodb import AsyncIOMotorCollection
-from app.model import UserSchema
-from app.api.core.config import settings
 from app.authentication import decode_token
 
 
