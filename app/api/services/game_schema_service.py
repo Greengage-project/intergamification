@@ -13,3 +13,14 @@ async def create_schema_service(game_schema: GameSchema):
     # Insertar en MongoDB
     game_schema_created = await game_schema_collection.insert_one(game_schema.dict())
     return game_schema_created
+
+# get all game schemas
+
+async def get_all_game_schemas_service():
+    game_schema_collection: AsyncIOMotorCollection = await get_collection(settings.COLLECTION_NAME_GAME_SCHEMA)
+    game_schemas = []
+    async for game_schema in game_schema_collection.find():
+        # Convertir ObjectId a str antes de agregarlo a la lista
+        game_schema["_id"] = str(game_schema["_id"])
+        game_schemas.append(game_schema)
+    return game_schemas
