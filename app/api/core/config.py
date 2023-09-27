@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     COLLECTION_NAME_GAME_INSTANCE: str
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)
-    def assemble_cors_origins(self, v: Union[str, List[str]]) -> Union[List[str], str]:
+    def assemble_cors_origins(cls, v: Union[str, List[str]]) -> Union[List[str], str]:
         """
         Assemble CORS origins
         """
