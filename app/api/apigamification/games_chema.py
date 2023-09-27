@@ -28,11 +28,14 @@ async def get_all_game_schemas():
 
 
 @router.post("/", dependencies=[Depends(JWTBearer())])
-async def create_game_schema(game_schema: GameSchema = Body(..., example=default_game_schema)):
+async def create_game_schema(token: str = Depends(JWTBearer()), game_schema: GameSchema = Body(..., example=default_game_schema)):
     """
     Create a game schema
     """
     try:
+        jwt_bearer = JWTBearer()
+        data_token = jwt_bearer.decode_token(token)
+        game_schema.created_by = data_token
         game_schema_created = await create_schema_service(game_schema)
         return {
             "message": "Game schema created successfully",
@@ -63,7 +66,7 @@ async def get_game_schema_by_id(game_schema_id: str):
             return {
                 "message": "Game schema not found"
             }
-        
+
         return {
             "game_schema": game_schema
         }
