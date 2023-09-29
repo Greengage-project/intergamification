@@ -3,7 +3,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from starlette.middleware.cors import CORSMiddleware
-from app.api.apigamification.games_chema import router as gameschema_router
+from app.api.apigamification.games_schema_router import router as gameschema_router
 from app.api.core.config import settings
 from app.api.db.mongodb import connect_to_mongo, close_mongo_connection
 

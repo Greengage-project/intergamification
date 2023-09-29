@@ -1,7 +1,8 @@
-from typing import List
+from typing import List, Optional
 from datetime import date
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from .game_schema_model import GameSchema
+from .jwt_model import JWT_data
 
 
 class Action(BaseModel):
@@ -16,7 +17,9 @@ class UserData(BaseModel):
 
 
 class Game(BaseModel):
-    game_id: str
+    process_id: str
     schema: GameSchema
+    created_by: Optional[JWT_data] = None
+    isPublicLeaderboard: Optional[bool] = True
     status: str
     data_game: List[UserData]

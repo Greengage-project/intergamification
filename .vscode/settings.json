@@ -3,5 +3,9 @@
   "python.linting.pep8Enabled": true,
   "python.autoComplete.extraPaths": [],
   "editor.formatOnSave": true,
-  "python.analysis.extraPaths": []
+  "python.analysis.extraPaths": [],
+  "python.testing.unittestArgs": ["-v", "-s", "./app", "-p", "test_*.py"],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": ["app"]
 }
