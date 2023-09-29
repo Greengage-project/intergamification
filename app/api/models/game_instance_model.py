@@ -1,8 +1,23 @@
 from typing import List, Optional
 from datetime import date
-from pydantic import BaseModel, Field
-from .game_schema_model import GameSchema
+from pydantic import BaseModel
+from .game_schema_model import GameSchemaBase
 from .jwt_model import JWT_data
+
+
+class TaskVariables(BaseModel):
+    complexityScore: int
+
+
+class task(BaseModel):
+    taskId: str
+    variables: List[TaskVariables]
+
+
+class NewGameBody(BaseModel):
+    processId: str
+    gameSchemaId: str
+    tasks: List[dict]
 
 
 class Action(BaseModel):
@@ -12,14 +27,12 @@ class Action(BaseModel):
 
 
 class UserData(BaseModel):
-    user_id: str
+    userId: str
     actions: List[Action]
 
 
-class Game(BaseModel):
-    process_id: str
-    schema: GameSchema
-    created_by: Optional[JWT_data] = None
+class GameBase(NewGameBody):
+    createdBy: Optional[JWT_data] = None
     isPublicLeaderboard: Optional[bool] = True
     status: str
-    data_game: List[UserData]
+    dataGame: List[UserData]

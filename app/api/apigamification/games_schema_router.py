@@ -3,7 +3,7 @@ from bson import ObjectId
 from fastapi import APIRouter, Body, Depends
 from fastapi.security import OAuth2PasswordBearer
 from app.authentication import JWTBearer
-from app.api.models.game_schema_model import GameSchema
+from app.api.models.game_schema_model import GameSchemaBase
 from app.api.services.game_schema_service import create_schema_service, get_all_game_schemas_service, get_game_schema_by_id_service
 
 from app.api.models.default_data_model import default_game_schema
@@ -28,14 +28,14 @@ async def get_all_game_schemas():
 
 
 @router.post("/", dependencies=[Depends(JWTBearer())])
-async def create_game_schema(token: str = Depends(JWTBearer()), game_schema: GameSchema = Body(..., example=default_game_schema)):
+async def create_game_schema(token: str = Depends(JWTBearer()), game_schema: GameSchemaBase = Body(..., example=default_game_schema)):
     """
     Create a game schema
     """
     try:
         jwt_bearer = JWTBearer()
         data_token = jwt_bearer.decode_token(token)
-        game_schema.created_by = data_token
+        game_schema.createdBy = data_token
         game_schema_created = await create_schema_service(game_schema)
         return {
             "message": "Game schema created successfully",

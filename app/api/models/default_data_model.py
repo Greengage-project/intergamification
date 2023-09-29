@@ -60,45 +60,18 @@ default_game_schema = {
     ],
 }
 
-default_game_instance = {
-    "game_id": "1",
-    "schema": {},
-    "status": "active",
+
+default_new_game_instance = {
+    "processId": "changeThis",
+    "gameSchemaId": "changeThis",
     "tasks":   [
         {
-            "task_id": "1",
+            "task_id": "e3a09f07-98f3-4dc4-988f-aee41ebcab1c",
             "variables": [
                 {
-                    "complexity_score": 100
+                    "complexityScore": 100
                 }
             ],
-        }
-    ],
-    "data_game": [
-        {
-            "user_id": "xxxxxxxxxx",
-            "actions": [
-                {
-                    "action_name": "contribution",
-                    "action_value": 1,
-                    "action_date": "2023-01-01"
-                },
-                {
-                    "action_name": "moderator_evaluation",
-                    "action_value": 1,
-                    "action_date": "2023-01-01"
-                },
-                {
-                    "action_name": "complete_task",
-                    "action_value": 1,
-                    "action_date": "2023-01-01"
-                },
-                {
-                    "action_name": "login",
-                    "action_value": 1,
-                    "action_date": "2023-01-01"
-                }
-            ]
         }
     ]
 }

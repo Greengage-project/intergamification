@@ -7,5 +7,15 @@
   "python.testing.unittestArgs": ["-v", "-s", "./app", "-p", "test_*.py"],
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
-  "python.testing.pytestArgs": ["app"]
+  "python.testing.pytestArgs": ["app"],
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.python": true
+  },
+  "[python]": {
+    "editor.formatOnSave": true
+  }
 }

@@ -20,13 +20,13 @@ class Milestone(BaseModel):
     badge: str
 
 
-class GameSchema(BaseModel):
+class GameSchemaBase(BaseModel):
     actions_values: List[str]
     actions_rewards: List[ActionReward]
     reward_formula: str
     milestones: List[Milestone]
     recomended: Optional[bool] = False
-    created_by: Optional[JWT_data] = None
+    createdBy: Optional[JWT_data] = None
     title: str
     description: str
     tags: List[str]

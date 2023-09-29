@@ -20,7 +20,8 @@ class Settings(BaseSettings):
     MONGODB_URL: str
     MONGODB_DATABASE: str
     COLLECTION_NAME_GAME_SCHEMA: str
-    COLLECTION_NAME_GAME_INSTANCE: str
+    COLLECTION_NAME_GAMES_INSTANCES: str
+    COLLECTION_NAME_GAMES_FINISHED: str
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)
     def assemble_cors_origins(cls, v: Union[str, List[str]]) -> Union[List[str], str]:

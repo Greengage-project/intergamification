@@ -1,10 +1,10 @@
 from bson import ObjectId
 from app.api.db.mongodb import get_collection, AsyncIOMotorCollection
-from app.api.models.game_schema_model import GameSchema
+from app.api.models.game_schema_model import GameSchemaBase
 from app.api.core.config import settings
 
 
-async def create_schema_service(game_schema: GameSchema):
+async def create_schema_service(game_schema: GameSchemaBase):
     game_schema_collection: AsyncIOMotorCollection = await get_collection(settings.COLLECTION_NAME_GAME_SCHEMA)
     # Insertar en MongoDB
     game_schema_created = await game_schema_collection.insert_one(game_schema.dict())
